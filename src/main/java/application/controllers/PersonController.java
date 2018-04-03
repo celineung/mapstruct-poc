@@ -3,6 +3,7 @@ package application.controllers;
 
 import application.domain.Person;
 import application.services.PersonService;
+import application.views.PersonDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +17,13 @@ public class PersonController {
     private PersonService personService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public Person mapCarDTOToCar() {
+    public Person mapPersonDTOToPerson() {
         return personService.mapPersonDTOToPerson();
     }
+
+    @RequestMapping(value = "/dot", method = RequestMethod.GET)
+    public PersonDTO mapPersonDTOToPersonDTO() {
+        return personService.mapPersonToPersonDTO();
+    }
+
 }

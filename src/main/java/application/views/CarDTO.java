@@ -5,6 +5,7 @@ public class CarDTO {
     private String color;
     private int nbSeats;
     private int licensePlate;
+    private PersonDTO owner;
 
     public String getColor() {
         return color;
@@ -28,5 +29,13 @@ public class CarDTO {
 
     public int getLicensePlate() {
         return licensePlate;
+    }
+
+    public PersonDTO getOwner() {
+        return owner;
+    }
+
+    public void setOwner(PersonDTO owner) {
+        this.owner = owner;
     }
 }

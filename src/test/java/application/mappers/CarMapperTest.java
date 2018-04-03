@@ -1,6 +1,7 @@
 package application.mappers;
 
 import application.domain.Car;
+import application.domain.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,12 +33,16 @@ public class CarMapperTest {
     @Test
     public void shouldMapCarToCarDTO() {
         Car car = new Car();
+        Person owner = new Person();
         car.setColor("blue");
         car.setLicensePlate(77);
         car.setNbSeats(7);
+        owner.setName("me");
+        car.setOwner(owner);
 
         CarDTO carDTO = carMapper.dtoFrom(car);
 
         assertThat(carDTO.getColor()).isEqualTo(car.getColor());
+        assertThat(carDTO.getOwner()).isNotNull();
     }
 }

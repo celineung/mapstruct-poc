@@ -1,6 +1,7 @@
 package application.services;
 
 import application.domain.Car;
+import application.domain.Person;
 import application.mappers.CarMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,10 +23,12 @@ public class CarService {
     }
 
     public CarDTO mapCarToCarDTO() {
+        Person owner = new Person();
         Car car = new Car();
         car.setColor("blue");
         car.setLicensePlate(77);
-        car.setNbSeats(7);
+        owner.setName("me");
+        car.setOwner(owner);
 
         return carMapper.dtoFrom(car);
     }
