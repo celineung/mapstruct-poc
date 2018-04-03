@@ -1,22 +1,22 @@
 package application.controllers;
 
 
-import application.domain.Car;
-import application.services.CarService;
+import application.domain.Person;
+import application.services.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/car")
-public class CarController {
+@RequestMapping(value = "/person")
+public class PersonController {
 
     @Autowired
-    private CarService carService;
+    private PersonService personService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public Car mapCarDTOToCar() {
-        return carService.mapCarDTOToCar();
+    public Person mapCarDTOToCar() {
+        return personService.mapPersonDTOToPerson();
     }
 }
